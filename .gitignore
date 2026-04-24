@@ -1,0 +1,28 @@
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# Maven
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+!backend/.mvn/wrapper/maven-wrapper.properties
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/node/
+
+# Logs
+*.log
+
+# Database
+data/
+*.mv.db
+*.trace.db
+
+# OS
+.DS_Store
+Thumbs.db
