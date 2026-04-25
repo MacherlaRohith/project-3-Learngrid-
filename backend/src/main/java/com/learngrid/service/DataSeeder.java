@@ -42,17 +42,11 @@ public class DataSeeder implements CommandLineRunner {
             seedRoles();
         }
 
-        // Force update existing courses with beautiful images
-        courseRepository.findAll().forEach(course -> {
-            if(course.getTitle().contains("Angular")) {
-                course.setThumbnailUrl("https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80");
-            } else if (course.getTitle().contains("Spring")) {
-                course.setThumbnailUrl("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80");
-            } else {
-                course.setThumbnailUrl("https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80");
-            }
-            courseRepository.save(course);
-        });
+        // Only seed if admin user doesn't exist (first run)
+        if (!userRepository.existsByUsername("rohith@admin.com")) {
+            seedUsers();
+            seedCourses();
+        }
 
         // Add a premium third course if it doesn't exist
         if (!courseRepository.findAll().stream().anyMatch(c -> c.getTitle().contains("Editorial Scholar"))) {
@@ -69,11 +63,17 @@ public class DataSeeder implements CommandLineRunner {
             courseRepository.save(premiumCourse);
         }
 
-        // Only seed if admin user doesn't exist (first run)
-        if (!userRepository.existsByUsername("rohith@admin.com")) {
-            seedUsers();
-            seedCourses();
-        }
+        // Force update existing courses with beautiful images
+        courseRepository.findAll().forEach(course -> {
+            if(course.getTitle().contains("Angular")) {
+                course.setThumbnailUrl("https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80");
+            } else if (course.getTitle().contains("Spring")) {
+                course.setThumbnailUrl("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80");
+            } else {
+                course.setThumbnailUrl("https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80");
+            }
+            courseRepository.save(course);
+        });
     }
 
     private void seedRoles() {
