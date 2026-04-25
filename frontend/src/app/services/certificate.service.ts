@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CertificateService {
-  private apiUrl = 'http://localhost:8080/api/certificates';
+  private apiUrl = '/api/certificates';
 
   constructor(private http: HttpClient) { }
 

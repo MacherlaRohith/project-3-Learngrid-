@@ -7,7 +7,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminService {
-  private API_URL = 'http://localhost:8080/api/admin';
+  private API_URL = '/api/admin';
 
   constructor(private http: HttpClient) {}
 

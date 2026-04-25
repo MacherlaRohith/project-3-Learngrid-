@@ -11,7 +11,7 @@ import { ToastService } from '../../services/toast.service';
 import { AiService } from '../../services/ai.service';
 import { FormsModule } from '@angular/forms';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = '/api/';
 
 @Component({
   selector: 'app-course-view',
@@ -195,7 +195,7 @@ const API_URL = 'http://localhost:8080/api/';
             <h4 class="outfit note-title">{{ note.title }}</h4>
             <p class="note-body" *ngIf="note.content">{{ note.content }}</p>
             <a *ngIf="note.pdfUrl" 
-               [href]="'http://localhost:8080' + note.pdfUrl" 
+               [href]="note.pdfUrl" 
                target="_blank" 
                class="pdf-download-btn">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>

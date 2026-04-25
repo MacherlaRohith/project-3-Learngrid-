@@ -52,7 +52,7 @@ export class OAuth2CallbackComponent implements OnInit {
       this.tokenStorage.saveToken(token);
       
       // Fetch user profile after OAuth login
-      this.http.get('http://localhost:8080/api/auth/me', {
+      this.http.get('/api/auth/me', {
           headers: { 'Authorization': 'Bearer ' + token }
       }).subscribe({
         next: (user: any) => {

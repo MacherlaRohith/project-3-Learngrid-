@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnInit, 
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = '/api/';
 
 @Component({
   selector: 'app-video-player',

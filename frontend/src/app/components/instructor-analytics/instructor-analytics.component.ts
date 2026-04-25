@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartConfiguration, ChartData } from 'chart.js';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = '/api/';
 
 @Component({
   selector: 'app-instructor-analytics',

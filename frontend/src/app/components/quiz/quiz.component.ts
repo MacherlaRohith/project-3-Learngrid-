@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { QuizService, Quiz } from '../../services/quiz.service';
 import { ToastService } from '../../services/toast.service';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = '/api/';
 
 @Component({
   selector: 'app-quiz',

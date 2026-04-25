@@ -9,7 +9,7 @@ import { ToastService } from '../../services/toast.service';
 import { CertificateService } from '../../services/certificate.service';
 import { AssessmentService } from '../../services/assessment.service';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = '/api/';
 
 @Component({
   selector: 'app-course-manage',
@@ -160,7 +160,7 @@ const API_URL = 'http://localhost:8080/api/';
                       <h4 class="outfit">{{ note.title }}</h4>
                       <p class="note-preview" *ngIf="note.content">{{ note.content | slice:0:120 }}{{ note.content?.length > 120 ? '...' : '' }}</p>
                       <span class="pdf-badge" *ngIf="note.pdfUrl">
-                        <a [href]="'http://localhost:8080' + note.pdfUrl" target="_blank" class="pdf-link">📎 {{ note.originalFileName || 'View Attached File' }}</a>
+                        <a [href]="note.pdfUrl" target="_blank" class="pdf-link">📎 {{ note.originalFileName || 'View Attached File' }}</a>
                       </span>
                     </div>
                     <div *ngIf="editingNoteId === note.id">

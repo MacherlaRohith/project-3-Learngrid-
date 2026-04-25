@@ -16,7 +16,7 @@ export class RealtimeDashboardService implements OnDestroy {
   constructor() {
     this.rxStomp = new RxStomp();
 
-    const factory = () => new (SockJS as any)('http://localhost:8080/ws');
+    const factory = () => new (SockJS as any)('/ws');
 
     this.rxStomp.configure({
       webSocketFactory: factory,

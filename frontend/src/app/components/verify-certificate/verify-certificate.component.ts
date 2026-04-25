@@ -69,7 +69,7 @@ export class VerifyCertificateComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const uuid = params.get('uuid');
       if (uuid) {
-        this.http.get(`http://localhost:8080/api/certificates/verify/${uuid}`).subscribe({
+        this.http.get(`/api/certificates/verify/${uuid}`).subscribe({
           next: (res) => {
             this.result = res;
             this.loading = false;

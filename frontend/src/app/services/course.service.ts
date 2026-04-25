@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:8080/api/courses';
+const API_URL = '/api/courses';
 
 export interface Lesson {
   id?: number;
@@ -101,24 +101,24 @@ export class CourseService {
 
   // --- ADMIN MODERATION ---
   getPendingCourses(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/admin/courses/pending');
+    return this.http.get('/api/admin/courses/pending');
   }
 
   approveCourse(id: number): Observable<any> {
-    return this.http.post(`http://localhost:8080/api/admin/courses/${id}/approve`, {});
+    return this.http.post(`/api/admin/courses/${id}/approve`, {});
   }
 
   rejectCourse(id: number): Observable<any> {
-    return this.http.post(`http://localhost:8080/api/admin/courses/${id}/reject`, {});
+    return this.http.post(`/api/admin/courses/${id}/reject`, {});
   }
 
   // --- PAYMENT INTEGRATION ---
   createPaymentOrder(courseId: number): Observable<any> {
-    return this.http.post('http://localhost:8080/api/payment/create-order', { courseId });
+    return this.http.post('/api/payment/create-order', { courseId });
   }
 
   verifyPayment(payload: any): Observable<any> {
-    return this.http.post('http://localhost:8080/api/payment/verify', payload);
+    return this.http.post('/api/payment/verify', payload);
   }
 }
 
