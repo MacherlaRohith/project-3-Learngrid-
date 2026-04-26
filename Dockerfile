@@ -23,4 +23,5 @@ COPY --from=build /app/backend/target/*.jar app.jar
 # But we expose 8080 as a fallback.
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Xmx384m", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx512m", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
+

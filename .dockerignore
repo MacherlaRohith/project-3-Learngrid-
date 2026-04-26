@@ -1,0 +1,11 @@
+.git
+.vscode
+.idea
+**/node_modules
+**/target
+**/dist
+**/.angular
+backend/data
+*.log
+Dockerfile
+.dockerignore
