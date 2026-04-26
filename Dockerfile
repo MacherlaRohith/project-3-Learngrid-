@@ -13,8 +13,15 @@ WORKDIR /app/backend
 RUN mvn -Pprod -DskipTests clean package
 
 # Run Stage
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
+
+# Install Node.js and Python for the Code Playground
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Copy the built jar from the build stage
 COPY --from=build /app/backend/target/*.jar app.jar
